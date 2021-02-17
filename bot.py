@@ -16,10 +16,9 @@ def get_url():
     url = contents['url']
     return url
 
-def get_dog(bot, update):
+def get_dog(update, context):
     url = get_url()
-    chat_id = update.message.chat_id
-    bot.send_photo(chat_id=chat_id, photo=url)
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo=url)
 
 
 def main():
