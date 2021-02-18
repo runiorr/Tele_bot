@@ -1,8 +1,10 @@
 import requests
-import my_infos
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                          RegexHandler, ConversationHandler)
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
+
+import my_infos
+import weather
 
 
 def welcome(update, context):
@@ -16,7 +18,7 @@ def get_url():
     url = contents['url']
     return url
 
-def get_dog(update, context):
+def get_dog_photo(update, context):
     url = get_url()
     context.bot.send_photo(chat_id=update.effective_chat.id, photo=url)
 
@@ -26,7 +28,8 @@ def main():
     updater = Updater(token=token, use_context=True)
 
     updater.dispatcher.add_handler(CommandHandler('start', welcome))
-    updater.dispatcher.add_handler(CommandHandler('dog', get_dog))
+    updater.dispatcher.add_handler(CommandHandler('dog', get_dog_photo))
+    updater.dispatcher.add_handler(CommandHandler('weatger', weather.get_lat_lon))
 
     
     updater.start_polling()
