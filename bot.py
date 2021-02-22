@@ -5,7 +5,6 @@ from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 import my_infos
 import function
 
-
 def main():
     token = my_infos.token
     updater = Updater(token=token, use_context=True)
