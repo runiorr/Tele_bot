@@ -1,5 +1,5 @@
 # Tele_bot
-Made this bot for testing.
+Search for @ru_krigz_bot in Telegram.
 
 Used Heroku to deploy.
 
